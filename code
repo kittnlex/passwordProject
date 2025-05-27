@@ -1,0 +1,63 @@
+
+import java.util.Scanner;
+
+public class miniProject {
+    public static void main(String[] args) {
+
+        String username;
+        String password = null;
+
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Enter your username: ");
+        username = scanner.nextLine();
+
+        System.out.println("Enter your password");
+        password = scanner.nextLine();
+
+        if(password.isEmpty()){
+            passwordVerify(password);
+        } else {
+            System.out.println("You could sign in correctly");
+        }
+
+        scanner.close();
+
+    }
+
+
+    static String passwordVerify (String password){
+
+        Scanner scanner = new Scanner(System.in);
+
+        String forgotPassword;
+
+        System.out.println("Forgot password? (Yes / No)");
+        forgotPassword = scanner.nextLine().toLowerCase().toUpperCase();
+
+        while(true){
+
+            System.out.println("Enter new password: ");
+            password = scanner.nextLine();
+
+            if (password.length() < 12) {
+            System.out.println("Password not accepted! Password must contain more than 12 characters");
+
+            } else if(!password.contains("#") & !password.contains("$") & !password.contains("%") & !password.contains("&")){
+                System.out.println("Password not accepted! Password must contain special characters");
+            } else {
+                System.out.println("Password accepted!.");
+                break;
+            }
+
+        }
+
+        
+
+        return password;   
+        
+    }
+    
+
+}
